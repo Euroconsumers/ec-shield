@@ -1,0 +1,99 @@
+<a href='https://cdn-tst.euroconsumers.org/html/guidelines/ec-shield' data-plugin="shield"
+   data-plugin-settings="#shield-test-shield-settings"></a>
+<script type="application/json" id="shield-test-shield-settings">
+    {
+        "widgetName": "ec-shield"
+    }
+</script>
+
+<div data-plugin="shield" data-plugin-settings="#shield-sat-shield-settings"></div>
+<script type="application/json" id="shield-sat-shield-settings">
+    {
+        "type": "sat",
+        "color": "green"
+    }
+</script>
+
+<div data-plugin="shield" data-plugin-settings="#shield-ux-shield-settings"></div>
+<script type="application/json" id="shield-ux-shield-settings">
+    {
+        "type": "ux",
+        "color": "green"
+    }
+</script>
+
+<h1>Shield</h1>
+
+<p>Shields are used to indicate the quality of a widget.</p>
+
+<h2>UX</h2>
+<p>This shield is used by the User Experience team to indicate that they approved a certain interation pattern</p>
+<div class="pattern">
+    <div data-plugin="shield" data-plugin-settings="#shield-ux-shield-settings-01"></div>
+    <script type="application/json" id="shield-ux-shield-settings-01">
+        {
+            "type": "ux",
+            "color": "green"
+        }
+    </script>
+    <div data-plugin="shield" data-plugin-settings="#shield-ux-shield-settings-02"></div>
+    <script type="application/json" id="shield-ux-shield-settings-02">
+        {
+            "type": "ux",
+            "color": "yellow"
+        }
+    </script>
+    <div data-plugin="shield" data-plugin-settings="#shield-ux-shield-settings-03"></div>
+    <script type="application/json" id="shield-ux-shield-settings-03">
+        {
+            "type": "ux",
+            "color": "red"
+        }
+    </script>
+</div>
+
+
+<h2>SAT</h2>
+<p>This shield indicates that the widget has some issues, it is best to contact one of the software architects to discuss it's usage</p>
+<div class="pattern">
+    <div data-plugin="shield" data-plugin-settings="#shield-sat-shield-settings-01"></div>
+    <script type="application/json" id="shield-sat-shield-settings-01">
+        {
+            "type": "sat",
+            "color": "green"
+        }
+    </script>
+    <div data-plugin="shield" data-plugin-settings="#shield-sat-shield-settings-02"></div>
+    <script type="application/json" id="shield-sat-shield-settings-02">
+        {
+            "type": "sat",
+            "color": "yellow"
+        }
+    </script>
+    <div data-plugin="shield" data-plugin-settings="#shield-sat-shield-settings-03"></div>
+    <script type="application/json" id="shield-sat-shield-settings-03">
+        {
+            "type": "sat",
+            "color": "red"
+        }
+    </script>
+</div>
+
+<h2>Tests</h2>
+<p>This shield shows the status of the last test run for a component</p>
+<div class="pattern">
+    <div data-plugin="shield" data-plugin-settings="#shield-test-shield-settings-01"></div>
+    <script type="application/json" id="shield-test-shield-settings-01">
+        {
+            "type": "tests",
+            "color": "red"
+        }
+    </script>
+    <div data-plugin="shield" data-plugin-settings="#shield-test-shield-settings-02"></div>
+    <script type="application/json" id="shield-test-shield-settings-02">
+        {
+            "type": "tests",
+            "color": "green"
+        }
+    </script>
+</div>

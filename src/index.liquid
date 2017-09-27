@@ -1,0 +1,49 @@
+<!--Do not -ever- edit this file. It will be overridden everytime you build your solution-->
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdn.euroconsumers.org/vendor/jquery/jquery-ui/1.12.0/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdn.euroconsumers.org/vendor/jquery/jquery-ui/1.12.0/jquery-ui.theme.min.css">
+    <link rel='stylesheet' href='Common/widgets/{{ config.fileName }}/dist/{{config.fileName}}.min.css'/>
+</head>
+
+<body style="margin:1em">
+
+<div id='content'></div>
+
+<script src='https://cdn.euroconsumers.org/vendor/jquery/jquery/1.11.2/jquery.min.js'></script>
+<script src="https://cdn.euroconsumers.org/vendor/jquery/jquery-ui/1.12.0/jquery-ui.min.js"></script>
+<!--This won't be here very long--><script src="https://cdn.euroconsumers.org/vendor/mustache/1.1.0/mustache.min.js"></script>
+<script src="/Common/widgets/ec-widgets/src/ec-widgets.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#content').load('Common/widgets/{{ config.fileName }}/dist/{{config.fileName}}.html', function () {
+            if(!$.fn.initialiseWidgets){
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.src = 'https://cdn-tst.euroconsumers.org/vendor/euroconsumers/ec-widgets/dist/ec-widgets.min.js';
+                script.async = false;
+                document.body.appendChild(script);
+                script.onload = function () {
+                    startInitialisation();
+                };
+            } else {
+                startInitialisation();
+            }
+        });
+    });
+
+    function startInitialisation(){
+        $('body').initialiseWidgets({
+            baseUrl: 'Common/widgets',
+            ext: '.min.js',
+            src: 'dist'
+        });
+    }
+</script>
+
+</body>
+
+</html>
