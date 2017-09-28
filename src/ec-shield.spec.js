@@ -1,6 +1,9 @@
+const webdriver = require('selenium-webdriver')
+const chai = require("chai");
+const expect = chai.expect;
 
-var chai = require("chai");
-var expect = chai.expect;
+const By = webdriver.By;
+const until = webdriver.until;
 
 describe('ec-shield', () => {
 
@@ -9,10 +12,6 @@ describe('ec-shield', () => {
     });
 
     it('Chrome should google', function (done) {
-		var webdriver = require('selenium-webdriver'),
-			By = webdriver.By,
-			until = webdriver.until;
-
 		var caps = webdriver.Capabilities.chrome();
         caps.set('dns-prefetch-disable', '0');
 
@@ -28,19 +27,31 @@ describe('ec-shield', () => {
 			.withCapabilities(caps)
 			.build();
 
-		driver.get('https://www.google.com/ncr');
-		driver.findElement(By.name('q')).sendKeys('webdriver');
-		driver.findElement(By.name('btnG')).click();
+		driver.get('https://www.google.com/ncr').then(() => {
+			driver.findElement(By.name('q')).then(element => {
+				element.sendKeys('webdriver').then(() => {
+					driver.findElement(By.name('btnG')).click();
 
-		driver.wait(until.titleIs('webdriver - Google Search'), 1000)
-			.then(() => {
-		        driver.quit();
-		        done();
-		    })
-			.catch(error => {
-		        driver.quit();
-				done(error);
-		    });
+					driver.wait(until.titleIs('webdriver - Google Search'), 1000)
+						.then(() => {
+							expect(true).be.true
+						})
+						.catch(() => {
+							expect(true).be.false
+						})
+						// .then(() => {
+						// 	driver.quit();
+						// 	done();
+						// })
+						// .catch(error => {
+						// 	driver.quit();
+						// 	done(error);
+						// });
+				})
+			})
+			
+		})
+
     });
 
 });
